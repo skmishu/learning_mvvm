@@ -3,7 +3,7 @@ package co.jatri.learning_mvvm_student_portal.view;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -16,25 +16,20 @@ import co.jatri.learning_mvvm_student_portal.view_model.UserViewModel;
 public class MainActivity extends AppCompatActivity {
 
     private UserViewModel userViewModel;
-    private ActivityMainBinding activityMainBinding;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//        binding view with data binding.
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//        adding viewModelProvider to MainActivity
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-
-
     }
 
     public void onClickVerify(View view) {
-        EditText etName = findViewById(R.id.etName), etPhone = findViewById(R.id.etPhone);
-        userViewModel.locateUserNetworkProvider(etPhone.getText().toString(),
-                etName.getText().toString()).observe(this,
-                result -> {
-                    Toast.makeText(this, result.getNetworkProvider(), Toast.LENGTH_LONG).show();
-                    activityMainBinding.setUser(result);
-                });
+        userViewModel.locateUserNetworkProvider(binding.etPhone.getText().toString(),
+                binding.etName.getText().toString()).observe(this,
+                result -> binding.setUser(result));
     }
 }
