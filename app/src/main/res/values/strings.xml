@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">learning_mvvm_student_portal</string>
+    <string name="msg_token_fmt">hi from app</string>
 </resources>
