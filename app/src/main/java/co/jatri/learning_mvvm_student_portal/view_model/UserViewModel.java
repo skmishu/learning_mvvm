@@ -19,6 +19,10 @@ public class UserViewModel extends ViewModel {
         return userRepo.networkProviderLocator(phone, name);
     }
 
+    public LiveData<UserModel> userLiveData(){
+        return userRepo.userLiveRepo();
+    }
+
     public LiveData<String> vaildateMobileNumber(String mobile, String name) {
         return Transformations.map(userRepo.networkProviderLocator(mobile, name), user -> {
             String message;
