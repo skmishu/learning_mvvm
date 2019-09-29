@@ -15,8 +15,8 @@ public class UserViewModel extends ViewModel {
         userRepo = new UserRepo();
     }
 
-    public LiveData<UserModel> locateUserNetworkProvider(String phone, String name) {
-        return userRepo.networkProviderLocator(phone, name);
+    public void locateUserNetworkProvider(String phone, String name) {
+        userRepo.networkProviderLocator(phone, name);
     }
 
     public LiveData<UserModel> userLiveData(){

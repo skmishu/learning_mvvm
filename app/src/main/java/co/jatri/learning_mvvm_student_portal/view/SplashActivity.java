@@ -1,4 +1,4 @@
-package co.jatri.learning_mvvm_student_portal.junk;
+package co.jatri.learning_mvvm_student_portal.view;
 
 import android.content.Intent;
 import android.os.Bundle;

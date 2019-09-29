@@ -3,10 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="co.jatri.learning_mvvm_student_portal">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,20 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".junk.SplashActivity">
+        <activity
+            android:name=".view.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.MainActivity"
+            android:screenOrientation="portrait" />
 
         <service
-            android:name=".junk.FirebaseMessagningService"
+            android:name=".z_service.FirebaseMessagningService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            android:permission="true" />
 
-        <activity android:name=".view.MainActivity"/>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

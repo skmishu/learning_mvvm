@@ -3,8 +3,7 @@ package co.jatri.learning_mvvm_student_portal.model;
 public class UserModel {
     private String name, phone, id, networkProvider;
 
-    public UserModel() {
-    }
+    public UserModel() {}
 
     public UserModel(String name, String phone, String id, String networkProvider) {
         this.name = name;
