@@ -1,6 +1,7 @@
 package co.jatri.learning_mvvm_student_portal.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,8 @@ import androidx.lifecycle.ViewModelProviders
 import co.jatri.learning_mvvm_student_portal.R
 import co.jatri.learning_mvvm_student_portal.databinding.ActivityMainBinding
 import co.jatri.learning_mvvm_student_portal.view_model.UserViewModel
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.reflect.KFunction0
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +41,21 @@ class MainActivity : AppCompatActivity() {
                 result -> binding.setUser(result));*/
 
         //      execute the action only.
-        userViewModel!!.locateUserNetworkProvider(binding!!.etPhone.text.toString(),
-                binding!!.etName.text.toString())
+        if (etPhone.text.isNotEmpty())
+            userViewModel!!.locateUserNetworkProvider(binding!!.etPhone.text.toString(),
+                    binding!!.etName.text.toString())
+
+        firstFun(this::secondFun)
     }
+
+    fun firstFun(function: KFunction0<Unit>){
+        Log.e("firstFun","running first function.")
+        function()
+    }
+
+    fun secondFun() {
+        Log.e("second","running second function.")
+    }
+
+
 }
