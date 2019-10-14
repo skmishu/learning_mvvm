@@ -1,7 +1,8 @@
-package co.jatri.mvvmanddagger
+package co.jatri.mvvmanddagger.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import co.jatri.mvvmanddagger.R
 
 class MainActivity : AppCompatActivity() {
 
