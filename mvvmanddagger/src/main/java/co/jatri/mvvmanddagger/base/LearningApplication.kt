@@ -1,6 +1,7 @@
 package co.jatri.mvvmanddagger.base
 
 import android.app.Application
+import co.jatri.mvvmanddagger.di.DaggerApplicationComponent
 import co.jatri.mvvmanddagger.utils.SharedPrefHelper
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -18,6 +19,7 @@ class LearningApplication : Application(), HasAndroidInjector {
     override fun onCreate() {
         super.onCreate()
         helper = SharedPrefHelper(this)
+        DaggerApplicationComponent.builder().application(this).build().inject(this)
     }
 
 }

@@ -1,8 +1,12 @@
 package co.jatri.mvvmanddagger.utils
 
 import android.app.Application
+import dagger.Module
+import javax.inject.Inject
 
-class SharedPrefHelper(var application: Application){
+
+@Module
+class SharedPrefHelper @Inject constructor(application: Application){
 
     private var sharedPreferences = application.getSharedPreferences("dagger",0)
     fun putValue(key: String, value: String) {
